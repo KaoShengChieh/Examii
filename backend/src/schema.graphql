@@ -1,0 +1,97 @@
+type Query {
+  eventExists(data: QueryEventInput!): Boolean!
+  event(eventCode: String!): Event
+}
+
+type Mutation {
+  createEvent(data: CreateEventInput!): String!           # Message
+  startEvent(data: StartEventInput!): Time!
+  extendTime(data: ExtendTimeInput!): Time!
+  createAnnouncement(data: CreateAnnouncementInput!): Announcement!
+  updateAnnouncement(data: UpdateAnnouncementInput!): Announcement!
+  deleteAnnouncement(data: DeleteAnnouncementInput!): Announcement!
+}
+
+type Subscription {
+  time(eventID: ID!): TimeSubscriptionPayload!
+  announcement(eventID: ID!): AnnouncementSubscriptionPayload!
+}
+
+type Event {
+  id: ID!
+  eventCode: String!
+  title: String!
+  time: Time!
+  announcements: [Announcement!]!
+}
+
+type Time {
+  startTime: String
+  duration: Int!
+  overtime: Int!
+  event: Event!
+}
+
+type Announcement {
+  id: ID!
+  content: String!
+  event: Event!
+}
+
+input QueryEventInput {
+  eventCode: String!
+  password: String
+}
+
+input CreateEventInput {
+  eventCode: String!
+  password: String!
+  title: String!
+  duration: Int!
+}
+
+input StartEventInput {
+  eventID: ID!
+  password: String!
+}
+
+input ExtendTimeInput {
+  eventID: ID!
+  password: String!
+  amount: Int!
+}
+
+input CreateAnnouncementInput {
+  eventID: ID!
+  password: String!
+  content: String!
+}
+
+input UpdateAnnouncementInput {
+  eventID: ID!
+  password: String!
+  announcementID: ID!
+  updatedContent: String!
+}
+
+input DeleteAnnouncementInput {
+  eventID: ID!
+  password: String!
+  announcementID: ID!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+type TimeSubscriptionPayload {
+  mutationType: MutationType!
+  data: Time!
+}
+
+type AnnouncementSubscriptionPayload{
+  mutationType: MutationType!
+  data: Announcement!
+}

@@ -1,0 +1,49 @@
+p {
+  margin-bottom: 0;
+}
+
+textarea {
+  height: 2.5em;
+}
+
+.announcements {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1;
+	height: 100%;
+}
+
+.container {
+	position: relative;
+	height: 100%;
+	background-color: #e7e7e7;
+	overflow: auto;
+}
+
+.form {
+	display: flex;
+	padding: .6rem .6rem;
+	align-items: flex-end;
+}
+
+.form > .input {
+	width: 100%;
+	border: none;
+	max-height: 16em;
+	min-height: 2.5em;
+	height: 2.5em;
+}
+
+.circleButton {
+	border-radius: 50%;
+	width: 2.5em;
+	height: 2.5em;
+	background-color: #e7e7e7;
+	border: none;
+	margin-left: .4em;
+}
+
+.circleButton > img {
+	width: 1em;
+	height: 1em;
+}

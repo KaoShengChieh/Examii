@@ -1,0 +1,33 @@
+img {
+	display: flex;
+	width: 15px;
+	height: 15px;
+}
+
+.home {
+  border-radius: .5em;
+  padding: 2em;
+  margin: 1em;
+  border: 2px solid #d3d3d3;
+  width: 30em;
+  height: 31em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.home > .title {
+  text-align: center;
+  padding: .3em;
+}
+
+.navbarTitle {
+  color: white;
+  margin-bottom: 0;
+}
+
+.content {
+	flex: 1 1 auto;
+	position: relative;
+}

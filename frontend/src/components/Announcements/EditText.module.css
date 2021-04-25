@@ -1,0 +1,12 @@
+.mycustomviewwrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.mycustomviewwrapper div:last-child {
+  position: absolute;
+  top: 3em;
+  right: .8em;
+  display: flex;
+  flex-direction: column;
+}
