@@ -1,13 +1,12 @@
 img {
 	display: flex;
-	width: 15px;
-	height: 15px;
+	width: 16px;
+	height: 16px;
 }
 
 .home {
   border-radius: .5em;
   padding: 2em;
-  margin: 1em;
   border: 2px solid #d3d3d3;
   width: 30em;
   height: 31em;
@@ -30,4 +29,12 @@ img {
 .content {
 	flex: 1 1 auto;
 	position: relative;
+}
+
+.info {
+  font-size: .9em;
+  position: absolute;
+  bottom: 9%;
+  left: 50%;
+  transform: translate(-50%, 0);
 }

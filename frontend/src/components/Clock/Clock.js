@@ -62,13 +62,13 @@ const Clock = ({ data , handler }) => {
 				}</p>
 				<p>{
 				  startTime ?
-				  'Start time : ' + new Date(parseInt(startTime)).toLocaleTimeString() :
+				  'Start time : ' + new Date(parseInt(startTime)).toLocaleTimeString('en-US') :
 				  'The test will start soon'
 				}</p>
 			</div>
 			
 			<Jumbotron>			
-			  <h1 className={classes.currentTime}>{currentTime.toLocaleTimeString()}</h1>
+			  <h1 className={classes.currentTime}>{currentTime.toLocaleTimeString('en-US')}</h1>
 			  <div className={classes.remainingAndEndTime}>
 			  	<h5>{
 			  	  `Remaining time: ${startTime ?
@@ -77,7 +77,7 @@ const Clock = ({ data , handler }) => {
 			  	}</h5>	  
 			  	<h5>{
 			  	  `End Time : ${startTime ?
-			  	  new Date(parseInt(startTime)+one_min*(duration+overtime)).toLocaleTimeString()
+			  	  new Date(parseInt(startTime)+one_min*(duration+overtime)).toLocaleTimeString('en-US')
 			  	  : ''}`
 			  	}</h5>	 
 			  </div>			   
