@@ -1,6 +1,32 @@
 Examii
 ===
 
+## Architecture
+
+**Examii** is developed in **JavaScript**, which mainly leverages [React](https://reactjs.org/), [GraphQL](https://graphql.org/), and [MongoDB](https://www.mongodb.com/2).
+
+![](https://i.imgur.com/ahpDiTq.png)
+
+**Examii** composes the UIs from small and isolated pieces of code in `frontend/src/components` with [React](https://reactjs.org/)'s declarative and flexible JavaScript library. And the program in `frontend/src/containers` controls these components with [React Hooks](https://reactjs.org/docs/hooks-intro.html).
+
+> Although **React** is powerful. We have to admit its notorious incompatibility issues about the version, about the components. No matter whether we’re newbies, or experienced frontend developers, we struggle.
+
+![](https://i.imgur.com/3OxM04l.png)
+
+**Examii** manages the context and data of a client with [GraphQL](https://graphql.org/). It provides APIs and a runtime for fulfilling queries with existing data. One of the most advantages of **GraphQL** is its complete and understandable description of the data in API. 
+
+But, how does the understandable description help? You may find that **Examii** has two servers, frontend and backend. And given the power of **GraphQL**, we can ask for exactly what they need and nothing more. Therefore, **Examii** is made to be easily evolved over time.
+
+![](https://i.imgur.com/P6s3mBl.png)
+
+To communicate between frontend and backend, **Examii**'s servers uses [Apollo](https://www.apollographql.com/) to manage remote data of **GraphQL** on each other. **Apollo** provides a comprehensive state management library for JavaScript. And it also provides [built-in integration with **React**](https://www.apollographql.com/docs/react/).
+
+Last but not least, **Examii** use [MongoDB](https://www.mongodb.com/2) as its [document-oriented database](https://en.wikipedia.org/wiki/Document-oriented_database). Classified as a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database, MongoDB uses JSON-like documents with optional schemas, which has similar advantage we mentioned in **GraphQL** earlier. These tools help us structure code in an economical, predictable, and declarative way that's consistent with modern development practices. 
+
+[Mongoose](https://mongoosejs.com/) is the last key to  fulfill [publish–subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) in **Examii**. **Mongoose** supports both promises and callbacks in JavaScript. **Examii** use **Mongoose** to model **MongoDB** object, making it work in an asynchronous environment. 
+
+Although we did not put much emphasis, **Examii** will  synchronize the information by automatically updating client webpage without the need to click refresh button on browser. 
+
 ## Development
 
 **Examii** adopts [Yarn](https://yarnpkg.com/) for development and version control.
@@ -88,4 +114,3 @@ $ cd Examii/frontend
 $ yarn
 $ yarn start
 ```
-
