@@ -256,7 +256,7 @@ const App = () => {
           <Button href="https://github.com/KaoShengChieh/Examii/issues/new?title=Examii%3A%20%5BREPLACE%20WITH%20SHORT%20DESCRIPTION%5D&body=Context%3A%20http%3A%2F%2Fexma-ii.herokuapp.com%2F%0A%0AChange%20the%20title%20above%20to%20describe%20your%20issue%20and%20add%20your%20feedback%20here%2C%20including%20code%20if%20necessary" target="_blank">
             <img src={bug_img} alt='bug'/>
           </Button> 
-          <Button>
+          <Button href="https://kaoshengchieh.github.io/Examii/" target="_blank">
             <img src={info_img} alt='info'/>
           </Button>
         </ButtonGroup> 

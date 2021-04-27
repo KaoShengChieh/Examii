@@ -1,5 +1,9 @@
 Examii
 ===
+作者：[KaoShengChieh](https://github.com/KaoShengChieh)、[tsai-you-shin](https://github.com/tsai-you-shin)
+
+Try it Now! :point_right: [Examii - Put a Tick by the Sheet](http://exam-ii.herokuapp.com/)<br>
+How to Use? :point_right: [Welcome to Examii](https://kaoshengchieh.github.io/Examii/)<br>
 
 ## Architecture
 

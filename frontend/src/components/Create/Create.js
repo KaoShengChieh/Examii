@@ -67,7 +67,7 @@ const Create = ({ CreateEvent }) => {
           // eslint-disable-next-line
           parseInt(Number(str)) == str && 
           !isNaN(parseInt(str, 10)) &&
-          parseInt(duration) > 0
+          parseInt(str) > 0
       }
       const warning = 'Duration can only be positive integer'
       
@@ -165,7 +165,7 @@ const Create = ({ CreateEvent }) => {
             name='duration'
             id='create_event__duration'
             value={duration}
-            placeholder='Duration...'
+            placeholder='How long is your exam?'
             onChange={e => setDuration(e.target.value)}
           />
         </FormGroup>
