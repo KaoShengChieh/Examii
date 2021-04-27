@@ -1,4 +1,3 @@
-# Welcome to Examii
 ## Why Using Examii?
 If you are a teacher, a teaching assistant, or a test administrator, Examii will be a good tool for easy proctoring! 
 ## How to Login Examii?
