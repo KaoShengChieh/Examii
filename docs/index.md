@@ -32,7 +32,7 @@ Click the **Add * min** button to extend the exam duration.
 
 ### Announcement
 #### Create new announcement
-Enter the context into the block at the lower right corner and then click the button at the right side to announce. **(NOTE: Supprort markdown)**
+Enter the context into the block at the lower right corner and then click the button at the right side to announce. **(Styling with Markdown is supported)**
 ![](https://i.imgur.com/nfE31jg.png)
 
 
