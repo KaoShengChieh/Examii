@@ -1,11 +1,11 @@
 import { GraphQLServer, PubSub } from 'graphql-yoga'
 import db from './db.js'
-import Query from './resolvers/Query.js'
-import Mutation from './resolvers/Mutation.js'
-import Subscription from './resolvers/Subscription.js'
-import Event from './resolvers/Event.js'
-import Time from './resolvers/Time.js'
 import Announcement from './resolvers/Announcement.js'
+import Event from './resolvers/Event.js'
+import Mutation from './resolvers/Mutation.js'
+import Query from './resolvers/Query.js'
+import Subscription from './resolvers/Subscription.js'
+import Time from './resolvers/Time.js'
 
 const pubsub = new PubSub()
 

@@ -14,7 +14,7 @@ const EVENT_EXISTS_QUERY = gql`
   }
 `
 
-const EVENT_QUERY =  gql`
+const EVENT_QUERY = gql`
   query event(
     $eventCode: String!
   ) {

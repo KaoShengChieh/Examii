@@ -321,10 +321,6 @@ nav {
           font-weight: bold;
           color: #333;
         }
-
-        + .tag-h2 {
-
-        }
       }
 
       &.tag-h2 {
@@ -393,9 +389,6 @@ footer {
         margin-right: 60px;
       }
 
-    .fork {
-    }
-
     #logo {
       margin-right: 15px;
     }
@@ -447,10 +440,9 @@ footer {
       float: left;
       display: inline-block;
       margin-left: 0px;
-    position:fixed;
-    left:20px;
-
-      }
+      position:fixed;
+      left:20px;
+    }
   }
 
   section {
@@ -465,9 +457,6 @@ footer {
 }
 
 @media print, screen and (max-width: 480px) {
-  body {
-  }
-
   header{
     position: relative;
     padding: 5px 0px;

@@ -4,7 +4,7 @@ import { Button } from 'reactstrap'
 
 const LinkButton = ({ to, children }) => {
   const history = useHistory()
-   
+
   return (
     <Button onClick={() => history.push(to)}>
       {children}

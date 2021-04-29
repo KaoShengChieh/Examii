@@ -1,9 +1,9 @@
+import bcrypt from 'bcryptjs'
 import dotenv from 'dotenv-defaults'
 import mongoose from 'mongoose'
-import bcrypt from 'bcryptjs'
+import Announcement from './models/announcement.js'
 import Event from './models/event.js'
 import Time from './models/time.js'
-import Announcement from './models/announcement.js'
 
 dotenv.config()
 
@@ -35,7 +35,7 @@ const authenticate = async (eventID, password) => {
   const exists = await Event.exists({ _id: eventID })
   if (!exists)
     throw new Error('Invalid credential')
-  
+
   const {
     password: passwordInDB
   } = await Event.findById(eventID)
@@ -47,7 +47,7 @@ const authenticate = async (eventID, password) => {
 
 const eventExists = async ({ eventCode, password }) => {
   const exists = await Event.exists({ eventCode })
-  
+
   if (!exists || !password)
     return exists
   else {
@@ -64,7 +64,7 @@ const findEvent = async eventCode => {
   const { id: eventID, title } = event
   const time = await findTime(eventID)
   const announcements = await listAnnouncements(eventID)
-  
+
   return {
     id: eventID,
     eventCode,
@@ -78,7 +78,7 @@ const findEventByID = async eventID => {
   const { eventCode, title } = await Event.findbyID(eventID)
   const time = await findTime(eventID)
   const announcements = await listAnnouncements(eventID)
-  
+
   return {
     id: eventID,
     eventCode,
@@ -100,7 +100,7 @@ const saveEvent = async ({ eventCode, password, title, duration }) => {
     if (err) throw new Error(err)
     console.log(`Event '${eventCode}' as '${event.id}' created`)
   })
-  
+
   const time = await new Time({
     duration,
     eventID: event.id
@@ -117,7 +117,7 @@ const findTime = async eventID => {
     duration,
     overtime
   } = await Time.findOne({ eventID })
-  
+
   return {
     startTime,
     duration,
@@ -137,7 +137,7 @@ const setStartTime = async ({ eventID, password, startTime }) => {
     { new: true },
     (err) => {
       if (err) throw new Error(err)
-      console.log(`Start time of Event '${eventID}' set to be ${startTime}`) 
+      console.log(`Start time of Event '${eventID}' set to be ${startTime}`)
     }
   )
 
@@ -151,7 +151,7 @@ const setStartTime = async ({ eventID, password, startTime }) => {
 
 const updateOvertime = async ({ eventID, password, amount }) => {
   await authenticate(eventID, password)
-  
+
   const {
     startTime,
     duration,
@@ -163,7 +163,7 @@ const updateOvertime = async ({ eventID, password, amount }) => {
   )
 
   console.log(`Overtime of Event '${eventID}' added by ${amount}`)
-  
+
   return {
     startTime,
     duration,
@@ -174,7 +174,7 @@ const updateOvertime = async ({ eventID, password, amount }) => {
 
 const listAnnouncements = async eventID => {
   const announcements = await Announcement.find({ eventID })
-  
+
   return announcements.map(({
     id,
     content,
@@ -188,7 +188,7 @@ const listAnnouncements = async eventID => {
 
 const saveAnnouncement = async ({ eventID, password, content }) => {
   await authenticate(eventID, password)
-  
+
   const announcement = await new Announcement({
     content,
     eventID
@@ -197,7 +197,7 @@ const saveAnnouncement = async ({ eventID, password, content }) => {
     if (err) throw new Error(err)
     console.log(`Announcement '${content.slice(0, 10)}...' saved`)
   })
-  
+
   return {
     id: announcement.id,
     content,
@@ -207,16 +207,16 @@ const saveAnnouncement = async ({ eventID, password, content }) => {
 
 const updateAnnouncement = async ({ eventID, password, announcementID, updatedContent }) => {
   await authenticate(eventID, password)
-  
+
   await Announcement.updateOne(
     { id: announcementID },
     { content: updatedContent },
     (err) => {
       if (err) throw new Error(err)
-      console.log(`Announcement '${updatedContent.slice(0, 10)}...' updated`) 
+      console.log(`Announcement '${updatedContent.slice(0, 10)}...' updated`)
     }
   )
-  
+
   return {
     id: announcementID,
     content: updatedContent,
@@ -226,9 +226,9 @@ const updateAnnouncement = async ({ eventID, password, announcementID, updatedCo
 
 const deleteAnnouncement = async ({ eventID, password, announcementID }) => {
   await authenticate(eventID, password)
-  
+
   const { content } = await Announcement.findByIdAndDelete(announcementID)
-  
+
   return {
     id: announcementID,
     content,

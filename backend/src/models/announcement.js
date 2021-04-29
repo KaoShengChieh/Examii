@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+
 const Schema = mongoose.Schema
 
 const AnnouncementSchema = new Schema({
@@ -6,8 +7,8 @@ const AnnouncementSchema = new Schema({
     type: String
   },
   eventID: {
-  	type: Schema.Types.ObjectId,
-  	ref: 'Event'
+    type: Schema.Types.ObjectId,
+    ref: 'Event'
   }
 })
 

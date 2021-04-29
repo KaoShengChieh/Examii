@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Card, CardBody, Form, Input } from 'reactstrap'
 import {
   bold_img,
@@ -6,8 +6,8 @@ import {
   strikethrough_img,
   trashcan_img
 } from '../../materials'
-import EditText from './EditText'
 import classes from './Announcements.module.css'
+import EditText from './EditText'
 
 const Announcements = ({ data, handlers }) => {
   const {
@@ -15,7 +15,7 @@ const Announcements = ({ data, handlers }) => {
     UpdateAnnouncement,
     DeleteAnnouncement
   } = handlers
-  const{
+  const {
     isTA,
     announcements
   } = data
@@ -25,7 +25,7 @@ const Announcements = ({ data, handlers }) => {
 
   const handleFocus = () => buttonClick.current.focus()
   useEffect(() => handleFocus(), [newContent])
-  
+
   useEffect(() => {
     scroll.current.scrollTop = scroll.current.scrollHeight
   });
@@ -35,7 +35,7 @@ const Announcements = ({ data, handlers }) => {
     CreateAnnouncement(variables)
     setNewContent('')
   }
-  
+
   const handleDeleteAnnouncement = (e) => {
     const variables = { announcementID: e.target.id }
     DeleteAnnouncement(variables)
@@ -43,18 +43,18 @@ const Announcements = ({ data, handlers }) => {
 
   const addBold = () => {
     //TODO: if we have time, move the cursor backward
-    setNewContent(newContent+'****')
+    setNewContent(newContent + '****')
   }
 
   const addStrikethrough = () => {
     //TODO: if we have time, move the cursor backward
-    setNewContent(newContent+'~~~~')    
+    setNewContent(newContent + '~~~~')
   }
 
   const Data = () => {
     return announcements.map(announcement =>
       <Card key={announcement.id}>
-        <CardBody>  
+        <CardBody>
           <Button
             outline
             id={announcement.id}
@@ -73,8 +73,8 @@ const Announcements = ({ data, handlers }) => {
             announcement={announcement}
             UpdateAnnouncement={UpdateAnnouncement}
             isTA={isTA}
-          />    
-        </CardBody> 
+          />
+        </CardBody>
       </Card>
     )
   }
@@ -82,7 +82,7 @@ const Announcements = ({ data, handlers }) => {
   return (
     <div className={classes.announcements}>
       <div className={classes.container} ref={scroll}>
-        <Data/>
+        <Data />
       </div>
       <Form className={classes.form} onSubmit={e => e.preventDefault()}>
         <Input
@@ -94,28 +94,28 @@ const Announcements = ({ data, handlers }) => {
           innerRef={buttonClick}
           disabled={!isTA}
         />
-        <Button 
+        <Button
           className={classes.circleButton}
           onClick={addBold}
           disabled={!isTA}
         >
-          <img src={bold_img} alt='bold'/>
+          <img src={bold_img} alt='bold' />
         </Button>
-        <Button 
-          className={classes.circleButton} 
+        <Button
+          className={classes.circleButton}
           onClick={addStrikethrough}
           disabled={!isTA}
         >
-          <img src={strikethrough_img} alt='strikethrough'/>
+          <img src={strikethrough_img} alt='strikethrough' />
         </Button>
         <Button
           className={classes.circleButton}
           onClick={handleCreateAnnouncement}
           disabled={newContent === '' || !isTA}
         >
-          <img src={send_img} alt='send'/>
+          <img src={send_img} alt='send' />
         </Button>
-      </Form> 
+      </Form>
     </div>
   )
 }
