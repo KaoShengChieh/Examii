@@ -245,62 +245,52 @@ const App = () => {
 
   const HomePage = () => {
     return (
-      eventID ? (<Redirect to={`/${eventID}`} />)
-        : (<>
-          <Navbar color='dark'>
-            <h3 className={classes.navbarTitle}>Examii</h3>
-        <h3 className={classes.navbarTitle}>Examii</h3>  
-            <h3 className={classes.navbarTitle}>Examii</h3>
-            <ButtonGroup>
-              <Button href="https://github.com/KaoShengChieh/Examii/issues/new?title=Examii%3A%20%5BREPLACE%20WITH%20SHORT%20DESCRIPTION%5D&body=Context%3A%20http%3A%2F%2Fexma-ii.herokuapp.com%2F%0A%0AChange%20the%20title%20above%20to%20describe%20your%20issue%20and%20add%20your%20feedback%20here%2C%20including%20code%20if%20necessary" target="_blank">
-                <img src={bug_img} alt='bug' />
-              </Button>
-          </Button> 
-              </Button>
-              <Button href="https://kaoshengchieh.github.io/Examii/" target="_blank">
-                <img src={info_img} alt='info' />
-              </Button>
-            </ButtonGroup>
-        </ButtonGroup> 
-            </ButtonGroup>
-          </Navbar>
-          <Container className={classes.home}>
-            <h1 className={classes.title}>Examii</h1>
-        <h1 className={classes.title}>Examii</h1> 
-            <h1 className={classes.title}>Examii</h1>
-            <Nav tabs>
-              <NavItem>
-                <NavLink
-                  className={activeTab === '1' ? 'active' : ''}
-                  onClick={() => setActiveTab('1')}
-                >
-                  Join
-            </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  className={activeTab === '2' ? 'active' : ''}
-                  onClick={() => setActiveTab('2')}
-                >
-                  Create
-            </NavLink>
-              </NavItem>
-            </Nav>
-            <TabContent activeTab={activeTab}>
-              <TabPane tabId='1'>
-                <Join JoinEvent={JoinEvent} />
-              </TabPane>
-              <TabPane tabId='2'>
-                <Create CreateEvent={CreateEvent} />
-              </TabPane>
-            </TabContent>
-          </Container>
-          <p className={classes.info}>
-            <a href="https://github.com/KaoShengChieh/Examii" target="_blank">Examii</a> is developed by
-              <a href="https://github.com/KaoShengChieh" target="_blank">KaoShengChieh</a> and
-              <a href="https://github.com/tsai-you-shin" target="_blank">tsai-you-shin</a>
-          </p>
-        </>)
+      eventID ? (<Redirect to={`/${eventID}`}/>)
+      : (<>
+        <Navbar color='dark'>
+          <h3 className={classes.navbarTitle}>Examii</h3>  
+          <ButtonGroup>
+            <Button href="https://github.com/KaoShengChieh/Examii/issues/new?title=Examii%3A%20%5BREPLACE%20WITH%20SHORT%20DESCRIPTION%5D&body=Context%3A%20http%3A%2F%2Fexma-ii.herokuapp.com%2F%0A%0AChange%20the%20title%20above%20to%20describe%20your%20issue%20and%20add%20your%20feedback%20here%2C%20including%20code%20if%20necessary" target="_blank">
+              <img src={bug_img} alt='bug'/>
+            </Button> 
+            <Button href="https://kaoshengchieh.github.io/Examii/" target="_blank">
+              <img src={info_img} alt='info'/>
+            </Button>
+          </ButtonGroup> 
+        </Navbar>
+        <Container className={classes.home}>
+          <h1 className={classes.title}>Examii</h1> 
+          <Nav tabs>
+            <NavItem>
+              <NavLink
+                className={activeTab === '1' ? 'active' : ''}
+                onClick={() => setActiveTab('1')}
+              >
+                Join
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                className={activeTab === '2' ? 'active' : ''}
+                onClick={()=> setActiveTab('2')}
+              >
+                Create
+              </NavLink>
+            </NavItem>
+          </Nav>
+          <TabContent activeTab={activeTab}>
+            <TabPane tabId='1'>
+              <Join JoinEvent={JoinEvent}/>
+            </TabPane>
+            <TabPane tabId='2'>
+              <Create CreateEvent={CreateEvent}/>
+            </TabPane>
+          </TabContent>
+        </Container>
+        <p className={classes.info}>
+          <a href="https://github.com/KaoShengChieh/Examii" target="_blank">Examii</a> is deployed 
+          by <a href="https://github.com/KaoShengChieh" target="_blank">KaoShengChieh</a> and <a href="https://github.com/tsai-you-shin" target="_blank">tsai-you-shin</a></p>
+      </>)
     )
   }
 
