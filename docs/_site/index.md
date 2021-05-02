@@ -15,15 +15,15 @@ Develop together? <img src="https://i.imgur.com/UquNKdb.png" width="20" align="t
 - Switch to **Create** tab and set the **Event Code** and **Password** for your new exam.
 - Enter your **Exam Name** and **Exam Duration**, and click the **Create** button. 
 
-> **You will see the [timer](./index#start-timer) if you succeed to create one.**
+> **You will see the [timer](./index#timer) if you succeed to create one.**
 
 ![](https://i.imgur.com/mS950sl.png)
 
 ### Join exam
-- For students
+- For students\
 Enter the **Event Code** gotten from your TA to join the exam.
-- For teachers or TAs
-If you have created the exam, enter the **Event Code** and **Password** in **Join** tab to join it. Otherwise, please [create one](./index#create-an-exam) first.
+- For teachers and TAs\
+If you have created the exam, enter the **Event Code** and **Password** in **Join** tab to join it. Otherwise, please [create one](./index#create-exam) first.
 
 ![](https://i.imgur.com/MeYySq0.png)
 
